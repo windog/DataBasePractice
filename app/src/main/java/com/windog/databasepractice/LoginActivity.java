@@ -67,7 +67,7 @@ public class LoginActivity extends Activity {
                     startActivity(intent);
 //                    finish();
                 }else {
-                    Toast.makeText(LoginActivity.this,"账号或密码错误，请重试！",Toast.LENGTH_LONG).show();
+                    Toast.makeText(LoginActivity.this,"账号或密码错误，请重试。",Toast.LENGTH_LONG).show();
                 }
             }
         });
