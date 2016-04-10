@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <EditText
@@ -8,4 +9,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Type Here"/>
+
+    <Button
+        android:id="@+id/savePrefrences"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="savePrefrences"/>
+
+    <Button
+        android:id="@+id/restorePrefrences"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="restorePrefrences"/>
 </LinearLayout>
