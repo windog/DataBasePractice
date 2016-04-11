@@ -1,4 +1,4 @@
-package com.windog.databasepractice;
+package com.windog.databasepractice.app;
 
 import android.app.Activity;
 import android.content.Context;
@@ -10,6 +10,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.windog.databasepractice.R;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
