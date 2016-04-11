@@ -35,8 +35,9 @@ public class LoginActivity extends Activity {
         login = (Button) findViewById(R.id.login);
         boolean isRemembered = preferences.getBoolean("rememberPw",false);
 
-        String a = String.valueOf(isRemembered);
+        String a = String.valueOf(isRemembered);   //将其他类型转换为String类型
         Toast.makeText(LoginActivity.this,a,Toast.LENGTH_LONG).show();
+
         if(isRemembered){
             String accounttext = preferences.getString("account","");
             String pass = preferences.getString("password","");
@@ -56,7 +57,7 @@ public class LoginActivity extends Activity {
                 if(accounText.equals("admin") && pass.equals("123456")){  //判断账号密码是否正确
                     editor = preferences.edit();
                     if(rememberPw.isChecked()){  //判断复选框是否选中
-                        editor.putBoolean("isRemembered",true);
+                        editor.putBoolean("rememberPw",true);
                         editor.putString("account",accounText);
                         editor.putString("password",pass);
                     }else {
