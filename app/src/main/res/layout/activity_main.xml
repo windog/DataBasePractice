@@ -21,4 +21,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="restorePrefrences"/>
+
+    <Button
+        android:id="@+id/btnToDbActivity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="to DbActivity"/>
 </LinearLayout>
