@@ -7,4 +7,27 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Create Database"/>
+    <Button
+        android:id="@+id/addData"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="C"/>
+
+    <Button
+        android:id="@+id/RetrieveData"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="R"/>
+
+    <Button
+        android:id="@+id/UpdateData"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="U"/>
+
+    <Button
+        android:id="@+id/DeleteData"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="D"/>
 </LinearLayout>
