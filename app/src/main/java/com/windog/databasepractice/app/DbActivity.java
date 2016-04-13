@@ -1,7 +1,10 @@
 package com.windog.databasepractice.app;
 
 import android.app.Activity;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -19,6 +22,7 @@ public class DbActivity extends Activity {
     Button btnUpdate;
     Button btnDelete;
     MyDatabaseHelper dbHelper;
+    SQLiteDatabase db = dbHelper.getWritableDatabase();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,9 +42,45 @@ public class DbActivity extends Activity {
 
         //添加数据 create
         btnCreateData = (Button) findViewById(R.id.addData);
+        btnCreateData.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                db = dbHelper.getWritableDatabase();
+                String[] a = new String[]{"Dan Brown","16.96","454","The Dan Vinci code"};
+                String[] b = new String[]{"windy","12.56","568","The messed up life"};
+                db.execSQL("INSERT into book (author,price,pages,name) VALUES(?,?,?,?)",a);
+                db.execSQL("INSERT into book (author,price,pages,name) VALUES(?,?,?,?)",b);
+            }
+        });
 
         //查询数据 retrieve
+        btnRetrieveData = (Button)findViewById(R.id.RetrieveData);
+        btnRetrieveData.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Cursor cursor = db.rawQuery("select * from book",null);
+                if(cursor.moveToFirst()){
+                    do {
+                        String author = cursor.getString(cursor.getColumnIndex("author"));
+                        double price = cursor.getDouble(cursor.getColumnIndex("price"));
+                        int pages = cursor.getInt(cursor.getColumnIndex("pages"));
+                        String name = cursor.getString(cursor.getColumnIndex("name"));
+
+                        Log.d("MMM",author);
+                        Log.d("MMM",""+price);
+                        Log.d("MMM",""+pages);
+                        Log.d("MMM",name);
+
+                    }while (cursor.moveToNext());
+                }
+                cursor.close();
+            }
+        });
+
         //更新数据 update
+        btnUpdate = (Button) findViewById(R.id.UpdateData);
+
         //删除数据 delete
+        btnDelete = (Button) findViewById(R.id.DeleteData);
     }
 }
